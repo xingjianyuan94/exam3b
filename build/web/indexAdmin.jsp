@@ -10,7 +10,7 @@
         <div class="wrap"> <!--div to hold all other divs -->
 
 
-            <%@ include file="includes/header.jsp" %>
+            <%@ include file="includes/headerAdmin.jsp" %>
 
             <hr>
             <%@ include file="includes/menu.jsp" %>

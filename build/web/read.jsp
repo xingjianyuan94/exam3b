@@ -13,7 +13,7 @@
         
         <div class="wrap"> <!--div to hold all other divs -->
             
-        <%@ include file="includes/header.jsp" %>
+        <%@ include file="includes/headerAdmin.jsp" %>
         
         <hr>
         <%@ include file="includes/menu.jsp" %>
@@ -21,7 +21,7 @@
         
         <div class="main"> <!--main div -->
             
-        <h2>Endangered Animals</h2>
+        <h2>Customers List</h2>
         <%= table %>
         
         

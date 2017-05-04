@@ -118,6 +118,8 @@ input[readonly]{background-color: gray;}
     background: #232323;
 }
 
+.navcontainer { margin-left: 30px; text-align:left;}
+
 .nav {
     background: #232323;
     height: 60px;

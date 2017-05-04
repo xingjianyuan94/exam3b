@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.EndangeredAnimals;
+import model.Customers;
 
 public class ReadQuery {
     
@@ -52,7 +52,7 @@ public class ReadQuery {
         
         
             try {
-                String query = "SELECT * FROM ENDANGEREDANIMALS ORDER BY ANIMALID ASC";
+                String query = "SELECT * FROM Customers ORDER BY customerID ASC";
                 
                 PreparedStatement ps = conn.prepareStatement(query);
                 this.results = ps.executeQuery();
@@ -74,13 +74,15 @@ public class ReadQuery {
  
   
    table += "<tr>";
-   table += "<th>AnimalID</th>";
-   table += "<th>AnimalName</th>";
-   table += "<th>ScientificName</th>";
-   table += "<th>Status</th>";
-   table += "<th>Location</th>";
-   table += "<th>Habitat</th>";
-   table += "<th>Update/ Delete</th>";
+   table += "<th>CustomerID</th>";
+   table += "<th>First Name</th>";
+   table += "<th>Last Name</th>";
+   table += "<th>Address 1</th>";
+   table += "<th>Address 2</th>";
+   table += "<th>City</th>";
+   table += "<th>State</th>";
+   table += "<th>Zip</th>";
+   table += "<th>Email</th>";
    table += "</tr>";
 
    
@@ -89,42 +91,57 @@ public class ReadQuery {
             try {
                 while(this.results.next()){
                     
-                    EndangeredAnimals animal = new EndangeredAnimals();
-                    animal.setANIMALID(this.results.getInt("ANIMALID"));
-                    animal.setANIMALNAME(this.results.getString("ANIMALNAME"));
-                    animal.setSCIENTIFICNAME(this.results.getString("SCIENTIFICNAME"));
-                    animal.setSTATUS(this.results.getString("STATUS"));
-                    animal.setLOCATION(this.results.getString("LOCATION"));
-                    animal.setHABITAT(this.results.getString("HABITAT"));
+                    Customers customer = new Customers();
+                    customer.setCustomerID(this.results.getInt("customerID"));
+                    customer.setFirstName(this.results.getString("firstName"));
+                    customer.setLastName(this.results.getString("lastName"));
+                    customer.setAddr1(this.results.getString("addr1"));
+                    customer.setAddr2(this.results.getString("addr2"));
+                    customer.setCity(this.results.getString("city"));
+                    customer.setState(this.results.getString("state"));
+                    customer.setZip(this.results.getString("zip"));
+                    customer.setEmailAddr(this.results.getString("emailAddr"));
 
                     
                     table += "<tr>";
                     table += "<td>";
-                    table += animal.getANIMALID();
+                    table += customer.getCustomerID();
                     table += "</td>";
                     
                     table += "<td>";
-                    table += animal.getANIMALNAME();
+                    table +=  customer.getFirstName();
                     table += "</td>";
                     
                     table += "<td>";
-                    table += animal.getSCIENTIFICNAME();
+                    table += customer.getLastName();
                     table += "</td>";
                     
                     table += "<td>";
-                    table += animal.getSTATUS();
+                    table += customer.getAddr1();
                     table += "</td>";
                     
                     table += "<td>";
-                    table += animal.getLOCATION();
+                    table +=customer.getAddr2();
                     table += "</td>";
                     
                     table += "<td>";
-                    table += animal.getHABITAT();
+                    table += customer.getCity();
                     table += "</td>";
                     
                     table += "<td>";
-                    table += "<a href=update?ANIMALID=" + animal.getANIMALID() + ">Update </a>"+"<a href=delete?ANIMALID=" + animal.getANIMALID() + ">Delete </a>";
+                    table += customer.getState();
+                    table += "</td>";
+                    
+                    table += "<td>";
+                    table += customer.getZip();
+                    table += "</td>";
+                    
+                    table += "<td>";
+                    table += customer.getEmailAddr();
+                    table += "</td>";
+                    
+                    table += "<td>";
+                    table += "<a href=update?cusomter=" + customer.getCustomerID() + ">Update </a>"+"<a href=delete?customerID=" + customer.getCustomerID() + ">Delete </a>";
                     table += "</td>";
                     
                     table += "</tr>";
