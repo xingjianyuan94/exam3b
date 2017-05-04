@@ -1,0 +1,146 @@
+body{
+    background: #D2B48C;
+}
+
+th{
+    background: #FFFF99;
+    color: #696969;
+    text-align: center;
+    border:1px solid black;
+    border-collapse: collapse;
+    height:10px;
+    padding:15px;
+}
+
+table{
+    background: #F08080;
+    border:1px solid black;
+    border-collapse: collapse;
+    width:100%;
+    
+}
+
+
+
+tr:nth-child(even){background-color: #F08080}
+tr:nth-child(odd){background-color: #E9967A}
+tr:hover{background-color:#CCCCCC}
+
+td{
+    border:1px solid black;
+    height:25px;
+    vertical-align: middle;
+    padding:5px;
+    color: white;
+}
+
+input{
+    width: 70%;
+}
+
+
+input[type=submit]{
+    
+    width:20%;
+}
+
+input[type=reset]{
+    
+    width:20%;
+}
+h2{text-align: center;}
+
+input.button {
+    width: 7em;  height: 2em;
+}
+
+input.username {
+    width: 16em;  height: 1em;
+}
+
+
+
+
+.update td{border: none; height:25px; padding:10px; font-weight:bold;}
+
+.right {text-align:right;}
+
+input[readonly]{background-color: gray;}
+
+.wrap{background-color:lightgrey; text-align:center; width:90%; margin:0 auto; border: 2px solid black; margin-top:25px;}
+
+.header{ text-align:left; padding:25px;}
+.headerImg{float:left; width:210px;}
+.headerText{float:left; height:100px; padding-top:30px; padding-left:25px;}
+.headerLogin{float:left; height:100px; padding-left:200px; padding-top: 30px;}
+
+
+.main{ padding:25px;text-align: center;}
+
+.footer{ text-align:center; padding:25px;}
+
+
+
+#text{
+    width: 297px;
+    padding: 15px 0 15px 70px;
+    font-size: 16px;
+    font-family: Montserrat, sans-serif;
+    border: 0 none;
+    height: 50px;
+    margin-right: 0;
+    margin-top: 5px;
+    color: white;
+    background: #2F4F4F;
+    float: left;
+    box-sizing: border-box;
+    border-left: 1px solid lightgrey;
+}
+
+#button {
+    margin-top: 5px;
+    border: 0 none;
+    background: #1f7f5c url(../includes/sss.png) center no-repeat;
+    width: 50px;
+    float: left;
+    padding: 0;
+    text-align: center;
+    height: 50px;
+    cursor: pointer;
+    
+}
+
+::-webkit-input-placeholder {
+    color: white;
+}
+
+#text:focus {
+    background: #232323;
+}
+
+.nav {
+    background: #232323;
+    height: 60px;
+    display: inline-block;
+}
+ 
+.nav li {
+    float: left;
+    list-style-type: none;
+    position: relative;
+}
+
+.nav li a {
+    font-size: 16px;
+    color: white;
+    display: block;
+    line-height: 60px;
+    padding: 0 26px;
+    text-decoration: none;
+    border-left: 1px solid lightgrey;
+    font-family: Montserrat, sans-serif;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
+.nav li a:hover {
+    background-color: #2e2e2e;
+}
