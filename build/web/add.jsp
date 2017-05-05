@@ -17,7 +17,7 @@
         
         <div class="main"> <!--main div -->
             
-        <h2>Add An Endangered Animal</h2>
+        <h2>Add a Customer</h2>
         <div align="center">
         <form name="addForm" action="addAnimal" method="get">
             

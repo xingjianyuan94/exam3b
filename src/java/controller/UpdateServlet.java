@@ -9,10 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.EndangeredAnimals;
+import model.Customers;
 
 
-@WebServlet(name = "UpdateServlet", urlPatterns = {"/updateAnimal"})
+@WebServlet(name = "UpdateServlet", urlPatterns = {"/updateCustomer"})
 public class UpdateServlet extends HttpServlet {
 
     
@@ -47,24 +47,30 @@ public class UpdateServlet extends HttpServlet {
             throws ServletException, IOException {
         
         //get the form data and set up an Animal object
-        int ANIMALID = Integer.parseInt(request.getParameter("animalid"));
-        String ANIMALNAME = request.getParameter("animalname");
-        String SCIENTIFICNAME = request.getParameter("scientificname");
-        String STATUS = request.getParameter("status");
-        String LOCATION = request.getParameter("location");
-        String HABITAT= request.getParameter("habitat");
+        int customerID = Integer.parseInt(request.getParameter("customerID"));
+        String firstName = request.getParameter("firstName");
+        String lastName = request.getParameter("lastName");
+        String addr1 = request.getParameter("addr2");
+        String addr2 = request.getParameter("addr1");
+        String city= request.getParameter("city");
+        String state= request.getParameter("state");
+        String zip= request.getParameter("zip");
+        String emailAddr= request.getParameter("emailAddr");
         
-        EndangeredAnimals animal = new EndangeredAnimals();
-        animal.setANIMALID(ANIMALID);
-        animal.setANIMALNAME(ANIMALNAME);
-        animal.setSCIENTIFICNAME(SCIENTIFICNAME);
-        animal.setSTATUS(STATUS);
-        animal.setLOCATION(LOCATION);
-        animal.setHABITAT(HABITAT);
+        Customers customer = new Customers();
+        customer.setCustomerID(customerID);
+        customer.setFirstName(firstName);
+        customer.setLastName(lastName);
+        customer.setAddr1(addr1);
+        customer.setAddr2(addr2);
+        customer.setCity(city);
+        customer.setState(state);
+        customer.setZip(zip);
+        customer.setEmailAddr(emailAddr);
         
         //create an UpdateQuery and use it to update the friend
         UpdateQuery uq = new UpdateQuery();
-        uq.doUpdate(animal);
+        uq.doUpdate(customer);
         
         //pass control to the ReadServlet
         String url ="/read";

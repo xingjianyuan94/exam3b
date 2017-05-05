@@ -15,7 +15,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.EndangeredAnimals;
+import model.Customers;
 
 /**
  *
@@ -26,11 +26,11 @@ public class ReadRecord {
         private Connection conn;
         private ResultSet results;
         
-        private EndangeredAnimals animal = new EndangeredAnimals();
-        private int ANIMALID;
+        private Customers customer = new Customers();
+        private int customerID;
                 
     
-    public ReadRecord (int ANIMALID){
+    public ReadRecord (int customerID){
         
     Properties props = new Properties();
    InputStream instr = getClass().getResourceAsStream("dbConn.properties");
@@ -50,7 +50,7 @@ public class ReadRecord {
    String username = props.getProperty("user.name");
    String passwd = props.getProperty("user.password");
    
-   this.ANIMALID = ANIMALID;
+   this.customerID = customerID;
    
             try {
                 Class.forName(driver);
@@ -68,25 +68,28 @@ public class ReadRecord {
     {
             try {
                 //set up a string to hold our query
-                String query = "SELECT * FROM ENDANGEREDANIMALS WHERE ANIMALID = ?";
+                String query = "SELECT * FROM Customers WHERE customerID = ?";
                 
                 //create a preparedstatement using our query string
                 PreparedStatement ps = conn.prepareStatement(query);
                 
                 //fill in the preparedstatement
-                ps.setInt(1, ANIMALID);
+                ps.setInt(1, customerID);
                 
                 //execute the query
                 this.results = ps.executeQuery();
                 
                 this.results.next();
                 
-                animal.setANIMALID(this.results.getInt("ANIMALID"));
-                animal.setANIMALNAME(this.results.getString("ANIMALNAME"));
-                animal.setSCIENTIFICNAME(this .results.getString("SCIENTIFICNAME"));
-                animal.setSTATUS(this.results.getString("STATUS"));
-                animal.setLOCATION(this.results.getString("LOCATION"));
-                animal.setHABITAT(this.results.getString("HABITAT"));
+                customer.setCustomerID(this.results.getInt("customerID"));
+                customer.setFirstName(this.results.getString("firstName"));
+                customer.setLastName(this .results.getString("lastName"));
+                customer.setAddr1(this.results.getString("addr1"));
+                customer.setAddr2(this.results.getString("addr2"));
+                customer.setCity(this.results.getString("city"));
+                customer.setState(this.results.getString("state"));
+                customer.setZip(this.results.getString("zip"));
+                customer.setEmailAddr(this.results.getString("emailAddr"));
                 
             } catch (SQLException ex) {
                 Logger.getLogger(ReadRecord.class.getName()).log(Level.SEVERE, null, ex);
@@ -94,9 +97,9 @@ public class ReadRecord {
         
     }
     
-    public EndangeredAnimals getAnimal(){
+    public Customers getCustomer(){
         
-        return this.animal;
+        return this.customer;
     }
     
     

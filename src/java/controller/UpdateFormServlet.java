@@ -9,7 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.EndangeredAnimals;
+import model.Customers;
 
 
 @WebServlet(name = "UpdateFormServlet", urlPatterns = {"/update"})
@@ -48,17 +48,17 @@ public class UpdateFormServlet extends HttpServlet {
             throws ServletException, IOException {
        
         //get the ANIMALID
-        int ANIMALID = Integer.parseInt(request.getParameter("ANIMALID"));
+        int customerID = Integer.parseInt(request.getParameter("customerID"));
         
         //create a ReadRecord class
-        ReadRecord rr = new ReadRecord(ANIMALID);
+        ReadRecord rr = new ReadRecord(customerID);
         
         //use ReadRecord to get the animal data
         rr.doRead();
-        EndangeredAnimals animal = rr.getAnimal();
+        Customers customer = rr.getCustomer();
         
         //pass animal and control to updateForm.jsp
-        request.setAttribute("animal", animal);
+        request.setAttribute("customer", customer);
         
         String url = "/updateForm.jsp";
         

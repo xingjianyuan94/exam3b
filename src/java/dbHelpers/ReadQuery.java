@@ -83,6 +83,7 @@ public class ReadQuery {
    table += "<th>State</th>";
    table += "<th>Zip</th>";
    table += "<th>Email</th>";
+   table += "<th>Update/Delete</th>";
    table += "</tr>";
 
    
@@ -141,7 +142,7 @@ public class ReadQuery {
                     table += "</td>";
                     
                     table += "<td>";
-                    table += "<a href=update?cusomter=" + customer.getCustomerID() + ">Update </a>"+"<a href=delete?customerID=" + customer.getCustomerID() + ">Delete </a>";
+                    table += "<a href=update?cusomter=" + customer.getCustomerID() + ">Update /  </a>"+"<a href=delete?customerID=" + customer.getCustomerID() + ">Delete </a>";
                     table += "</td>";
                     
                     table += "</tr>";
