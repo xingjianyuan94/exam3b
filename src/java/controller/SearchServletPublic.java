@@ -54,7 +54,7 @@ public class SearchServletPublic extends HttpServlet {
             throws ServletException, IOException {
        
         //Get the text to search
-        String ANIMALNAME = request.getParameter("searchValPublic");
+        String firstName = request.getParameter("searchValPublic");
         
         
         
@@ -62,7 +62,7 @@ public class SearchServletPublic extends HttpServlet {
         SearchQueryPublic sq = new SearchQueryPublic();
         
         //Get the HTML table from the SearchQuery object
-        sq.doSearch(ANIMALNAME);
+        sq.doSearch(firstName);
         String table1 = sq.getHTMLTable1();
         
         //Pass execution control to read.jsp along with the table

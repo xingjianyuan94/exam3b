@@ -18,7 +18,7 @@
         
         <div class="main"> <!--main div -->
             
-        <h2>Search Animals</h2>
+        <h2>Search Customers</h2>
         <div align="center">
         <form name="searchForm" action="search" method="get">
             

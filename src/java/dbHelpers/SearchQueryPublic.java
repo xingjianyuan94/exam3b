@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.EndangeredAnimals;
+import model.Customers;
 
 public class SearchQueryPublic {
     
@@ -49,15 +49,16 @@ public class SearchQueryPublic {
      }
     
      
-     public void doSearch(String ANIMALNAME){
+     public void doSearch(String firstName){
          
          try {
-             String query = "SELECT * FROM ENDANGEREDANIMALS WHERE UPPER(ANIMALNAME) LIKE ? ORDER BY ANIMALID ASC";
+             String query = "SELECT * FROM Customers WHERE (UPPER(firstName) LIKE ? OR UPPER(lastName) LIKE ?) ORDER BY customerID ASC";
              
              PreparedStatement ps = conn.prepareStatement(query);
              
              //fill the ?
-             ps.setString(1, "%" + ANIMALNAME.toUpperCase() + "%");
+             ps.setString(1, "%" + firstName.toUpperCase() + "%");
+             ps.setString(2, "%" + firstName.toUpperCase() + "%");
              this.results = ps.executeQuery();
          } catch (SQLException ex) {
              Logger.getLogger(SearchQueryPublic.class.getName()).log(Level.SEVERE, null, ex);
@@ -67,7 +68,9 @@ public class SearchQueryPublic {
      
      }
     
-      public String getHTMLTable1(){
+    
+      
+       public String getHTMLTable1(){
    
                 
    String table1 = "";
@@ -79,12 +82,15 @@ public class SearchQueryPublic {
  
   
    table1 += "<tr>";
-   table1 += "<th>AnimalID</th>";
-   table1 += "<th>AnimalName</th>";
-   table1 += "<th>ScientificName</th>";
-   table1 += "<th>Status</th>";
-   table1 += "<th>Location</th>";
-   table1 += "<th>Habitat</th>";
+   table1 += "<th>CustomerID</th>";
+   table1 += "<th>First Name</th>";
+   table1 += "<th>Last Name</th>";
+   table1 += "<th>Address 1</th>";
+   table1 += "<th>Address 2</th>";
+   table1 += "<th>City</th>";
+   table1 += "<th>State</th>";
+   table1 += "<th>Zip</th>";
+   table1 += "<th>Email</th>";
    table1 += "</tr>";
 
    
@@ -99,46 +105,62 @@ public class SearchQueryPublic {
                 else
                 while(this.results.next()){
                     
-                    EndangeredAnimals animal = new EndangeredAnimals();
-                    animal.setANIMALID(this.results.getInt("ANIMALID"));
-                    animal.setANIMALNAME(this.results.getString("ANIMALNAME"));
-                    animal.setSCIENTIFICNAME(this.results.getString("SCIENTIFICNAME"));
-                    animal.setSTATUS(this.results.getString("STATUS"));
-                    animal.setLOCATION(this.results.getString("LOCATION"));
-                    animal.setHABITAT(this.results.getString("HABITAT"));
+                   Customers customer = new Customers();
+                    customer.setCustomerID(this.results.getInt("customerID"));
+                    customer.setFirstName(this.results.getString("firstName"));
+                    customer.setLastName(this.results.getString("lastName"));
+                    customer.setAddr1(this.results.getString("addr1"));
+                    customer.setAddr2(this.results.getString("addr2"));
+                    customer.setCity(this.results.getString("city"));
+                    customer.setState(this.results.getString("state"));
+                    customer.setZip(this.results.getString("zip"));
+                    customer.setEmailAddr(this.results.getString("emailAddr"));
 
                     
                     table1 += "<tr>";
                     table1 += "<td>";
-                    table1 += animal.getANIMALID();
+                    table1 += customer.getCustomerID();
                     table1 += "</td>";
                     
                     table1 += "<td>";
-                    table1 += animal.getANIMALNAME();
+                    table1 +=  customer.getFirstName();
                     table1 += "</td>";
                     
                     table1 += "<td>";
-                    table1 += animal.getSCIENTIFICNAME();
+                    table1 += customer.getLastName();
                     table1 += "</td>";
                     
                     table1 += "<td>";
-                    table1 += animal.getSTATUS();
+                    table1 += customer.getAddr1();
                     table1 += "</td>";
                     
                     table1 += "<td>";
-                    table1 += animal.getLOCATION();
+                    table1 += customer.getAddr2();
                     table1 += "</td>";
                     
                     table1 += "<td>";
-                    table1 += animal.getHABITAT();
+                    table1 += customer.getCity();
+                    table1 += "</td>";
+                    
+                    table1 += "<td>";
+                    table1 += customer.getState();
+                    table1 += "</td>";
+                    
+                    table1 += "<td>";
+                    table1 += customer.getZip();
+                    table1 += "</td>";
+                    
+                    table1 += "<td>";
+                    table1 += customer.getEmailAddr();
                     table1 += "</td>";
                     
                     
                     
                     table1 += "</tr>";
-                    
+                   
+                  
                 }        } catch (SQLException ex) {
-                Logger.getLogger(SearchQueryPublic.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(SearchQuery.class.getName()).log(Level.SEVERE, null, ex);
             }
    
    
@@ -149,6 +171,4 @@ public class SearchQueryPublic {
    
    
    }
-      
-      
 }
