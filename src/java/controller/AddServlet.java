@@ -14,13 +14,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.EndangeredAnimals;
+import model.Customers;
 
 /**
  *
  * @author xingjianyuan
  */
-@WebServlet(name = "AddServlet", urlPatterns = {"/addAnimal"})
+@WebServlet(name = "AddServlet", urlPatterns = {"/addCustomer"})
 public class AddServlet extends HttpServlet {
 
     /**
@@ -80,27 +80,32 @@ public class AddServlet extends HttpServlet {
             throws ServletException, IOException {
         
         //get the data
-        String animalname = request.getParameter("animalname");
-        String scientificname = request.getParameter("scientificname");
-        String status = request.getParameter("status");
-        String location = request.getParameter("location");
-        String habitat = request.getParameter("habitat");
+        String firstName = request.getParameter("firstName");
+        String lastName = request.getParameter("lastName");
+        String addr1 = request.getParameter("addr1");
+        String addr2 = request.getParameter("addr2");
+        String city = request.getParameter("city");
+        String state = request.getParameter("state");
+        String zip = request.getParameter("zip");
+        String emailAddr = request.getParameter("emailAddr");
         
-        //set up a animal object
-        EndangeredAnimals animal = new EndangeredAnimals();
-        animal.setANIMALNAME(animalname);
-        animal.setSCIENTIFICNAME(scientificname);
-        animal.setSTATUS(status);
-        animal.setLOCATION(location);
-        animal.setHABITAT(habitat);
+       Customers customer = new Customers();
+        customer.setFirstName(firstName);
+        customer.setLastName(lastName);
+        customer.setAddr1(addr1);
+        customer.setAddr2(addr2);
+        customer.setCity(city);
+        customer.setState(state);
+        customer.setZip(zip);
+        customer.setEmailAddr(emailAddr);
         
         
         //set up an addQuery object
         AddQuery aq = new AddQuery();
         
         
-        //pass the animal to addQuery to add to the databass
-        aq.doAdd(animal);
+        //pass the customer to addQuery to add to the databass
+        aq.doAdd(customer);
         
         //pass execution control to the ReadServlet
         String url = "/read";

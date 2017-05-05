@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.EndangeredAnimals;
+import model.Customers;
 
 /**
  *
@@ -56,18 +56,21 @@ public class AddQuery {
             }
     }
     
-    public void doAdd(EndangeredAnimals animal){
+    public void doAdd(Customers customer){
         
         try {
-            String query = "INSERT INTO ENDANGEREDANIMALS (ANIMALNAME, SCIENTIFICNAME, STATUS, LOCATION, HABITAT) VALUES (?, ?, ?, ?, ?)";
+            String query = "INSERT INTO Customers (firstName, lastName, addr1, addr2, city, state, zip, emailAddr) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             
             PreparedStatement ps = conn.prepareStatement(query);
             
-            ps.setString(1, animal.getANIMALNAME());
-            ps.setString(2, animal.getSCIENTIFICNAME());
-            ps.setString(3, animal.getSTATUS());
-            ps.setString(4, animal.getLOCATION());
-            ps.setString(5, animal.getHABITAT());
+            ps.setString(1, customer.getFirstName());
+            ps.setString(2, customer.getLastName());
+            ps.setString(3, customer.getAddr1());
+            ps.setString(4, customer.getAddr2());
+            ps.setString(5, customer.getCity());
+            ps.setString(6, customer.getState());
+            ps.setString(7, customer.getZip());
+            ps.setString(8, customer.getEmailAddr());
             
             ps.executeUpdate();
             

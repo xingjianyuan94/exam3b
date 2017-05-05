@@ -56,16 +56,16 @@ public class DeleteQuery {
         
     }
     
-    public void doDelete(int ANIMALID){
+    public void doDelete(int customerID){
         
         try {
             //set up a string to hold our query
-            String query = "DELETE FROM ENDANGEREDANIMALS WHERE ANIMALID = ?";
+            String query = "DELETE FROM Customers WHERE customerID = ?";
             
             //create a preparedstatement using our query string
             PreparedStatement ps = conn.prepareStatement(query);
             //fill in the preparedstatement
-            ps.setInt(1, ANIMALID);
+            ps.setInt(1, customerID);
             
             //execute the query
             ps.executeUpdate();

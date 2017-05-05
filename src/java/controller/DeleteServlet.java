@@ -77,15 +77,15 @@ public class DeleteServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        //get the ANIMALID
-        int ANIMALID = Integer.parseInt(request.getParameter("ANIMALID"));
+        //get the customerID
+        int customerID = Integer.parseInt(request.getParameter("customerID"));
         
         //create a deleteQuery object
         DeleteQuery dq = new DeleteQuery();
         
         
         //use deleteQuery to delete the object
-        dq.doDelete(ANIMALID);
+        dq.doDelete(customerID);
         
         //pass execution on to the ReadServlet
         String url = "/read";

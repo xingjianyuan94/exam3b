@@ -27,6 +27,7 @@
             }
             
             function check1(form) { 
+                window.close();
                  window.open('index.jsp');
             }
         </script>
