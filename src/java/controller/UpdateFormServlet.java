@@ -47,17 +47,17 @@ public class UpdateFormServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        
-        //get the ANIMALID
+        //get the customerID
         int customerID = Integer.parseInt(request.getParameter("customerID"));
         
         //create a ReadRecord class
         ReadRecord rr = new ReadRecord(customerID);
         
-        //use ReadRecord to get the animal data
+        //use ReadRecord to get the customer data
         rr.doRead();
         Customers customer = rr.getCustomer();
         
-        //pass animal and control to updateForm.jsp
+        //pass customer and control to updateForm.jsp
         request.setAttribute("customer", customer);
         
         String url = "/updateForm.jsp";

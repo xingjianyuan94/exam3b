@@ -46,7 +46,7 @@ public class UpdateServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        //get the form data and set up an Animal object
+        //get the form data and set up an Customer object
         int customerID = Integer.parseInt(request.getParameter("customerID"));
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
