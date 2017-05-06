@@ -1,10 +1,10 @@
 <div class="header"> <!--header div -->
 		<div class="headerImg"> <!--header img div -->
-		<img src="includes/animalLogo.jpg" height = "150px" />
+		<img src="includes/Logo.jpg" height = "150px" />
 		</div> <!--close header div -->
 		
 		<div class="headerText"> <!--header text div -->
-		<h1>Customer Management  App</h1>
+		<h2>Customers Management App</h2>
 		</div> <!--close header div -->
                 
                 <div class="headerLogin">
@@ -19,6 +19,7 @@
             function check(form) { 
                 
                 if(form.userid.value === "123" && form.pswrd.value === "123") {
+                    window.close();
                     window.open('indexAdmin.jsp');
                 }
                 else {

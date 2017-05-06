@@ -12,6 +12,7 @@ border: 1px solid black;}
 
 .tableformat tr:hover{background-color:#CCCCCC;}
 
+.tablerow{text-align: center;}
 /*th{
     background: #FFFF99;
     color: #696969;

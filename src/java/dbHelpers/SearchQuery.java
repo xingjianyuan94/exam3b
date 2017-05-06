@@ -74,12 +74,12 @@ public class SearchQuery {
    String table = "";
    
    
-  table += "<table>";
+  table += "<table class= 'tableformat'>";
    
    
  
   
-   table += "<tr>";
+   table += "<tr class='tablehead'>";
    table += "<th>CustomerID</th>";
    table += "<th>First Name</th>";
    table += "<th>Last Name</th>";

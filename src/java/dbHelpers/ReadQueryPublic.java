@@ -68,12 +68,12 @@ public class ReadQueryPublic {
    String table1 = "";
    
    
-  table1 += "<table>";
+  table1 += "<table class= 'tableformat'>";
    
    
  
   
-   table1 += "<tr>";
+   table1 += "<tr class='tablehead'>";
    table1 += "<th>CustomerID</th>";
    table1 += "<th>First Name</th>";
    table1 += "<th>Last Name</th>";

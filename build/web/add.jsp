@@ -21,55 +21,55 @@
         <div align="center">
         <form name="addForm" action="addCustomer" method="get">
             
-            <table class="update">
+            <table class="tableformat">
                 
                 
             
                 <tr>
-                <td class="right">First Name:</td>
+                <td class="tablerow">First Name:</td>
                 <td><input type="text" name="firstName" value="" /></td>
                 </tr>
             
                 <tr>
-                <td class="right">Last Name:</td>
+                <td class="tablerow">Last Name:</td>
                 <td><input type="text" name="lastName" value=""/></td>
                 </tr>
                 
                 <tr>
-                <td class="right">Address 1:</td>
+                <td class="tablerow">Address 1:</td>
                 <td><input type="text" name="addr1" value=""/></td>
                 </tr>
             
                 <tr>
-                <td class="right">Address 2:</td>
+                <td class="tablerow">Address 2:</td>
                 <td><input type="text" name="addr2" value=""/></td>
                 </tr>
                 
                 <tr>
-                <td class="right">City:</td>
+                <td class="tablerow">City:</td>
                 <td><input type="text" name="city" value=""/></td>
                 </tr>
                 
                 <tr>
-                <td class="right">State(Please Enter 2 Letters):</td>
+                <td class="tablerow">State(Please Enter 2 Letters):</td>
                 <td><input type="text" name="state" value=""/></td>
                 </tr>
                 
                 <tr>
-                <td class="right">Zip:</td>
+                <td class="tablerow">Zip(Please Enter 5 Digits):</td>
                 <td><input type="text" name="zip" value=""/></td>
                 </tr>
                 
                 <tr>
-                <td class="right">Email:</td>
+                <td class="tablerow">Email:</td>
                 <td><input type="text" name="emailAddr" value=""/></td>
                 </tr>
                 
             </table>
             <br>
             <br>
-            <input type="reset" name="reset" value="Clear"/>
             <input type="submit" name="submit" value="Submit"/>
+            <input type="reset" name="reset" value="Clear"/>
             
         </form>
         </div>

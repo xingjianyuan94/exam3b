@@ -1,10 +1,10 @@
 <div class="header"> <!--header div -->
 		<div class="headerImg"> <!--header img div -->
-		<img src="includes/animalLogo.jpg" height = "150px" />
+		<img src="includes/Logo.jpg" height = "150px" />
 		</div> <!--close header div -->
 		
 		<div class="headerText"> <!--header text div -->
-		<h1>Endangered Animals App</h1>
+		<h2>Customers Management App</h2>
 		</div> <!--close header div -->
                 
                 <div class="headerLogin">
@@ -15,12 +15,15 @@
             <input type="button"  onclick="check(this.form)" value="Admin Login" class = "button"/>
             <input type="reset"  value="Clear" class = "button"/>
             <input type="button" onclick="check1(this.form)" value="Logout" class = "button"/>
+            <br>
+            <p>(Username=123;Password=123)</p>
         </form>
                     
         <script language="javascript">
             function check(form) { 
                 
                 if(form.userid.value === "123" && form.pswrd.value === "123") {
+                    window.close();
                     window.open('indexAdmin.jsp');
                 }
                 else {
